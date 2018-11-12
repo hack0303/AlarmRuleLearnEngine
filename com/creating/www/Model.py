@@ -19,6 +19,12 @@ class AlarmModel(object):
         '''
     def __str__(self):
         return str(self.id)+" "+self.mstrbussinessids+" "+self.code+" "+self.occurtime
+class RouterPathNode:
+    neid=0
+    boardid=0
+    portname=""  
+    def __str__(self, *args, **kwargs):
+        return str("NEId:%d--BoardId:%d--PortName:%s--------->" % (self.neid,self.boardid,self.portname))
     
 class ElecModel:
     '''
@@ -31,8 +37,15 @@ class ElecModel:
     clientids=[]
     forwardpath=[]
     reversepath=[]
+    _anscendids=[]
+    _descendids=[]
+    _allforwardpath=[]
+    _allreversepath=[]
+    is_client_visited=False
+    is_server_visited=False
     is_forward_visited=False
     is_reverse_visited=False
+    
 
     def __init__(self):
         '''
